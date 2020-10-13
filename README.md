@@ -1,3 +1,3 @@
 # Sitebuilder trial task
 
-Demo: http://gergototh-sitebuild.herokuapp.com/
+Working demo: http://gergototh-sitebuild.herokuapp.com/
