@@ -1,0 +1,11 @@
+// Container
+
+.container { padding: 0 $base-size * 1.5; }
+
+@include screen-small {
+    .container { padding: 0 $base-size * 2.625; }
+}
+
+@include screen-large {
+    .container { padding: 0 calc((100% - #{$container-width}) / 2); }
+}

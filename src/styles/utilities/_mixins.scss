@@ -1,0 +1,28 @@
+// Mixins
+@mixin screen-only-mobile {
+    @media (max-width: 575.98px) { @content; }
+}
+
+@mixin screen-small {
+    @media (min-width: 576px) { @content; }
+}
+
+@mixin screen-medium {
+    @media (min-width: 768px) { @content; }
+}
+
+@mixin screen-large {
+    @media (min-width: 992px) { @content; }
+}
+
+@mixin screen-xlarge {
+    @media (min-width: 1200px) { @content; }
+}
+
+@mixin absoluteFull {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

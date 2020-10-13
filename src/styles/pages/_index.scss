@@ -1,0 +1,109 @@
+// Index page
+
+// Hero
+.hero {
+    position: relative;
+    padding-top: $header-height;
+    color: $color--brown;
+    background-color: rgba($color--blue, 0.7);
+    
+    // Hero title
+    &_title { 
+        margin-top: $base-size * 2;
+        margin-bottom: $base-size * 2.5;
+        font-size: $base-size * 2.5;
+    }
+
+    // Hero description
+    &_description {
+        display: -webkit-box;
+        margin-bottom: $base-size * 4;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        color: white;
+        font-weight: 600;
+        line-height: 1.5;
+        overflow: hidden;
+    }
+    
+    // Hero button booking
+    .button--booking { margin-bottom: $base-size * 3; }
+    
+    // Hero background
+    &_background {
+        @include absoluteFull;
+        z-index: -1;
+        
+        img {
+            @include absoluteFull;
+            object-fit: cover;
+        }
+    }
+}
+
+// Main
+.main {
+    padding-top: $base-size * 2;
+    padding-bottom: $base-size * 2;
+
+    svg { 
+        display: none;
+        width: 100%;
+    }
+
+    p { color: $color--blue; }
+}
+
+@include screen-small {
+    .hero {
+        &_title { font-size: $base-size * 3; }
+
+        .button--booking {
+            max-width: $base-size * 20;
+            margin-bottom: $base-size * 8.5;
+        }
+    }
+
+    .main {
+        display: flex;
+        align-items: center;
+        gap: $base-size;
+
+        svg, p { width: 50%; }
+
+        svg { display: block; }
+    }
+}
+
+@include screen-medium {
+    .main { gap: $base-size * 2.5; }
+}
+
+@include screen-large {
+    .hero {
+        &_title {
+            font-size: $base-size * 3.75;
+            margin-top: $base-size * 5;
+            margin-bottom: $base-size * 4.75;
+        }
+
+        &_description {
+            max-width: $base-size * 38.5625;
+            margin-bottom: $base-size * 4.75;
+            font-size: $base-size * 1.3125;
+        }
+
+        .button--booking {
+            width: unset;
+            padding-right: $base-size * 1.5;
+            padding-left: $base-size * 1.5;
+            margin-bottom: $base-size * 10;
+        }
+    }
+
+    .main {
+        gap: $base-size * 3.5;
+
+        p { font-size: $base-size * 1.3125; }
+    }
+}

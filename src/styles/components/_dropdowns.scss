@@ -1,0 +1,123 @@
+// Dropdown
+
+.dropdown {
+    position: relative;
+    font-weight: 600;
+
+    // Body of dropdown
+    &_body {
+        position: absolute;
+        min-width: 100%;
+        width: max-content;
+        padding-top: $base-size;
+        opacity: 0;
+        pointer-events: none;
+
+        &.right { right: - $base-size; }
+
+        // Main content of dropdown
+        &_content {
+            background-color: white;
+            border-radius: $base-size / 2;
+            box-shadow: 0px 6px 12px rgba(27, 39, 56, 0.302256);
+            font-weight: 400;
+        }    
+    }
+
+    // Small rotated square
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: - $base-size * 1.5;
+        transform: translateX(-50%) rotate(45deg);
+        width: $base-size;
+        height: $base-size;
+        background-color: white;
+        border-top-left-radius: $base-size / 2;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    // States
+    &:focus,
+    &:hover,
+    &[data-focus = true] {
+        &::after { opacity: 1; }
+
+        .dropdown_body {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}
+
+// Simple dropdown
+.dropdown--simple {
+    svg { margin-left: $base-size / 2; }
+
+    .dropdown_body_content_item {
+        &:not(:nth-of-type(1)) { border-top: 1px solid $color--gray; }
+
+        &.active { font-weight: 600; }
+
+        a { 
+            display: block;
+            padding-top: $base-size / 1.25;
+            padding-right: $base-size * 5;
+            padding-bottom: $base-size / 1.25;
+            padding-left: $base-size * 2.25;
+            color: $color--dark-brown;
+        }
+    }  
+}
+
+// 2 column dropdown
+.dropdown--2-col {
+    .dropdown_body {
+        left: - $base-size * 7;
+
+        &_content {
+            padding: $base-size * 1.5 $base-size * 2 $base-size * 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            columns: 2;
+            column-gap: $base-size * 2;
+    
+            &_item {
+                padding-top: $base-size / 2;
+                padding-bottom: $base-size / 2;
+                
+                a {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                }
+
+                hr { 
+                    margin-top: $base-size;
+                    opacity: 0.3;
+                }
+    
+                svg {
+                    width: 3rem;
+                    height: 3rem;
+                    margin-right: $base-size * 1.5;
+                }
+    
+                &_text {    
+                    h3 { 
+                        color: $color--dark-brown;
+                        font-weight: 400;
+                        line-height: 2;
+                    }
+        
+                    p { 
+                        color: $color--blue;
+                        font-size: $base-size / 1.1;
+                    }    
+                }  
+            }
+        }
+    }
+}

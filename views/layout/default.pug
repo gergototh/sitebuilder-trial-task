@@ -1,0 +1,60 @@
+//- Include icons
+include ../mixins/icons/menu.pug
+include ../mixins/icons/close.pug
+include ../mixins/icons/login.pug
+include ../mixins/icons/chat.pug
+include ../mixins/icons/place.pug
+include ../mixins/icons/capitol.pug
+include ../mixins/icons/passport.pug
+include ../mixins/icons/ferris-wheel.pug
+include ../mixins/icons/motorcycle.pug
+include ../mixins/icons/bikini.pug
+include ../mixins/icons/cable-car-cabin.pug
+include ../mixins/icons/arrow-down.pug
+
+//- Include images
+include ../mixins/images/budapest-logo.pug
+include ../mixins/images/heroes-square.pug
+
+//- Include components
+include ../mixins/components/dropdowns.pug
+
+//- Include layout elements
+include ../mixins/layout/header.pug
+include ../mixins/layout/menu.pug
+
+//- Block for template specific variables
+block variables
+
+//- Html document
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='theme-color', content='#000000')
+    
+    //- Block for template specific meta tags
+    block tags
+
+    link(rel='preload' href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap' as='style')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap')
+
+    link(rel='stylesheet' type='text/css' href='/styles/style.css')
+
+  body
+    h1.sr-only Gergő Tóth sitebuild
+    
+    //- Header
+    +header
+    
+    //- Block for template specific content
+    block content
+    
+    //- Menu
+    +menu
+
+    script(src='/js/bundle.js')
+
+    //- Block for template specific javascript
+    block js

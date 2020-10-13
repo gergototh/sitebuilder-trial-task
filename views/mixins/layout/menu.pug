@@ -1,0 +1,85 @@
+mixin menu()
+    nav.menu
+        h2.sr-only Menu
+
+        //- Menu header
+        header.menu_header
+            button(aria-label='Close menu').button--menu-toggle
+                +iconMenu('#014593')
+            a(href='' aria-label='Ugrás a főoldalra').logo
+                +imageBudapestLogo('#014593', '#AB9A88')
+            button(aria-label='Close menu').button--menu-close
+                +iconClose('#014593')
+        
+        if loggedIn
+            .menu_profile
+                .menu_profile_logged-in-as
+                    picture.avatar
+                        img(src='https://res.cloudinary.com/domtflweo/image/upload/c_scale,w_64/v1602582275/avatar_kftifc.jpg' alt='Avatar').avatar_image
+                    div
+                        h3 Logged in as
+                        h4 Unknown Soldier
+
+                a(href='#') Dashboard
+                a(href='#') My Account
+        else
+            //- Booking button
+            button.button--booking Start booking!
+        
+        hr
+        
+        //- Menu section
+        section.menu_section
+            h3 Lorem ipsum
+            a(href='') Sed lacinia
+            a(href='') Praesent consequat
+            a(href='') Aenean lacinia viverra
+            a(href='') Praesent venenatis?
+            a(href='') Etiam finibus molestie
+            a(href='') Duis varius massa
+        hr
+        
+        //- Menu section
+        section.menu_section
+            h3 Dolorsit
+            a(href='') Adipiscing elit
+            a(href='') Cogito ergo sum
+        
+        hr
+        
+        //- Menu section
+        section.menu_section
+            h3 Consectetur
+            a(href='') Grande punto
+        
+        hr
+        
+        //- Menu section
+        section.menu_section
+            h3.sr-only Section headline
+            a(href='') Curabitur
+            a(href='') Ut ullamcorper
+            a(href='') Vestibulum
+            a(href='') Orci varius
+            a(href='') Donec vel eros
+            a(href='') Curabitur
+            a(href='') Maecenas 
+        
+        hr
+        
+        //- Language select
+        label(for='language-select').sr-only Select language
+        select#language-select.menu_language-select
+            option English
+            option Magyar
+        
+        hr
+        
+        //- Menu footer
+        footer.menu_footer
+            a(href='#').button--action-bordered
+                span Chat
+                +iconChat('#014593')
+            a(href='/loggedin').button--action-bordered
+                span Login
+                +iconLogin('#014593')

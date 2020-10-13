@@ -1,0 +1,47 @@
+// Buttons
+
+.button {
+    //- Action buttons
+    &--action, &--action-bordered {
+        display: flex;
+        align-items: center;
+        padding: $base-size / 3 $base-size / 1.5;
+        border-radius: 25rem;
+        color: $color--blue;
+        font-size: $base-size;
+        
+        span { margin-right: auto; }
+    }
+    
+    &--action { background-color: white; }
+    
+    &--action-bordered { border: 1px solid $color--blue; }
+    
+    //- Booking button
+    &--booking {
+        display: inline-block;
+        width: 100%;
+        padding: $base-size / 2 0;
+        color: $color--blue;
+        background-color: $color--brown;
+        border-radius: 25rem;
+        font-weight: 700;
+        line-height: $base-size * 2;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    //- Menu toggle and close buttons
+    &--menu-toggle { margin-right: $base-size; }
+    
+    &--menu-toggle, &--menu-close {
+        width: $base-size * 1.5;
+        height: $base-size * 1.5;
+    }
+}
+
+@include screen-small {
+    .button {
+        &--action, &--action-bordered { min-width: $base-size * 5.5; }
+    }
+}

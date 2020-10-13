@@ -1,0 +1,62 @@
+mixin header()
+  header.header.container
+    h2.sr-only Header
+
+    //- Toggle menu
+    button(aria-label='Open menu').button--menu-toggle
+        +iconMenu('#FFFFFF')
+    
+    //- Logo
+    a(href='' aria-label='Go to homepage').logo
+        +imageBudapestLogo('#FFFFFF', '#FFDFBA')
+    
+    //- Header menu
+    ul(role='menubar').header_menu
+      li(role='menuitem' tabindex='0' aria-haspopup='true').dropdown.dropdown--2-col
+        | Lorem ipsum
+        .dropdown_body
+            ul(role='menu' aria-hidden='true').dropdown_body_content
+                +dropdownContentItem({role: 'menuitem', tabindex: '-1', href: '#', title: 'Sed lacina', description: 'Magna tincidunt venenatis', line: true})
+                    +iconCapitol('#014593', '#AB9A88')
+                +dropdownContentItem({role: 'menuitem', tabindex: '-1', href: '#', title: 'Praesent venenatis?', description: 'Quis enim faucibus nisi convallis', line: true})
+                    +iconMotorcycle('#014593', '#AB9A88')
+                +dropdownContentItem({role: 'menuitem', tabindex: '-1', href: '#', title: 'Praesent consequat', description: 'Felis sit amet vehicula molestie', line: false})
+                    +iconPassport('#014593', '#AB9A88')
+                +dropdownContentItem({role: 'menuitem', tabindex: '-1', href: '#', title: 'Etiam finibus molestie', description: 'Curabitur lobortis pellentesque congue', line: true})
+                    +iconBikini('#014593', '#AB9A88')
+                +dropdownContentItem({role: 'menuitem', tabindex: '-1', href: '#', title: 'Aenean lacinia viverra', description: 'Class aptent taciti sociosqu ad', line: true})
+                    +iconFerrisWheel('#014593', '#AB9A88')
+                +dropdownContentItem({role: 'menuitem', tabindex: '-1', href: '#', title: 'Duis varius massa', description: 'Praesent suscipit venenatis justo', line: false})
+                    +iconCableCarCabin('#014593', '#AB9A88')
+      li(role='menuitem' tabindex='-1'): a(href='#') Dolorsit
+      li(role='menuitem' tabindex='-1'): a(href='#') Consectetur
+      li(role='menuitem' tabindex='0' aria-haspopup='true').dropdown.dropdown--simple
+        | En
+        +iconArrowDown('#FFFFFF')
+        .dropdown_body.right
+            ul(role='menu' aria-hidden='true').dropdown_body_content
+                +dropdownLink({role: 'menuitem', tabindex: '-1', href: '#', title: 'Deutch'})
+                +dropdownLink({role: 'menuitem', tabindex: '-1', href: '#', title: 'English'})(class='active')
+                +dropdownLink({role: 'menuitem', tabindex: '-1', href: '#', title: 'Françias'})
+                +dropdownLink({role: 'menuitem', tabindex: '-1', href: '#', title: 'Magyar'})
+    
+    //- Chat button
+    a(href='#' aria-label='Chat').chat-button.button--action
+        span Chat
+        +iconChat('#014593')
+    
+    if loggedIn
+        ul(role='menubar').profile-button
+            li(role='menuitem' tabindex='0' aria-haspopup='true' aria-label='Profile').dropdown.dropdown--simple.header_profile
+                picture.avatar
+                    img(src='https://res.cloudinary.com/domtflweo/image/upload/c_scale,w_64/v1602582275/avatar_kftifc.jpg' alt='Avatar').avatar_image
+                .dropdown_body.right
+                    ul(role='menu' aria-hidden='true').dropdown_body_content
+                        +dropdownLink({role: 'menuitem', tabindex: '-1', href: '#', title: 'Dashboard'})
+                        +dropdownLink({role: 'menuitem', tabindex: '-1', href: '#', title: 'My Account'})
+                        +dropdownLink({role: 'menuitem', tabindex: '-1', href: '/', title: 'Log out'})
+    else
+        //- Login button
+        a(href='/loggedin' aria-label='Login').login-button.button--action
+            span Login
+            +iconLogin('#014593')

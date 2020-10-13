@@ -1,0 +1,15 @@
+mixin dropdownContentItem(a)
+    li(role=a.role tabindex=a.tabindex).dropdown_body_content_item
+        a(href=a.href aria-label=a.title)
+            if block
+                block
+            .dropdown_body_content_item_text
+                h3= a.title
+                if a.description
+                    p= a.description
+        if a.line
+            hr
+
+mixin dropdownLink(object)
+    li(role=object.role tabindex=object.tabindex class!=attributes.class).dropdown_body_content_item
+        a(href=object.href)= object.title
